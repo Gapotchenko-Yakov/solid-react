@@ -1,7 +1,6 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
 import TodoList from "./TodoList";
 import { useTodos } from "./custom-hooks";
+// import { useTodos } from "./custom-hooks";
 
 const TodosPage = () => {
   const todos = useTodos();

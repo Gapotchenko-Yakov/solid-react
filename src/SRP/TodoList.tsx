@@ -1,12 +1,14 @@
 import React from "react";
-import { Todo, Todos } from "./types";
+import { Todo } from "./types";
 
-const TodoList = (todos: any) => {
+const TodoList = ({ todos }: { todos: Todo[] }) => {
   return (
     <ul>
-      {(todos || [])?.map((todo: any) => (
-        <li key={todo.id}>{`ID: ${todo.id}, Title: ${todo.title}`}</li>
-      ))}
+      {todos.map
+        ? todos.map((todo: Todo) => (
+            <li key={todo.id}>{`ID: ${todo.id}, Title: ${todo.title}`}</li>
+          ))
+        : null}
     </ul>
   );
 };

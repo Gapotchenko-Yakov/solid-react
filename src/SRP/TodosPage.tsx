@@ -1,24 +1,38 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
+interface Todo {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
 
-const Todos Page
-=
-() => {
-=
-useState([]);
-const [todos, setTodos]
-useEffect(() => {
-async function getTodos () {
-const {data} = await axios.get("https://someapi/todos/"); setTodos (firstTen);
-getTodos();
+const TodosPage = () => {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    const getTodos = async () => {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/todos?_limit=10"
+      );
+      const { data } = response;
+      setTodos(data);
+    };
+
+    getTodos();
+  }, []);
+
+  return (
+    <article>
+      <h1>My Todos:</h1>
+      <ul>
+        {todos.map((todo: Todo) => (
+          <li key={todo.id}>{`ID: ${todo.id}, Title: ${todo.title}`}</li>
+        ))}
+      </ul>
+    </article>
+  );
 };
-}, []);
-return (
-<div>
-<h1>My Todos:</h1>
-<ul>
-{todos.map(todo => (
-<li key={todo.id}>{`ID: ${todo.id}, Title: ${todo.title}``}</li>
-))}
-</ul>
-</div>
+
+export default TodosPage;

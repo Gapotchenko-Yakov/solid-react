@@ -1,19 +1,9 @@
+import axios from "axios";
 import "./App.css";
-
-import DisplayUser from "./ISP/DisplayUser";
+import LoginForm from "./DIP/LoginForm";
 
 function App() {
-  const user = {
-    personalInfo: {
-      name: "John",
-      age: 27,
-    },
-    physicalFeatures: {
-      hairColor: "blonde",
-      heightInCm: 175,
-    },
-  };
-  return <DisplayUser name={user.personalInfo.name} />;
+  return <LoginForm onSubmit={(formData) => axios.post("someurl", formData)} />;
 }
 
 export default App;

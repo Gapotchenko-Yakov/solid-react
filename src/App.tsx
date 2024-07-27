@@ -4,12 +4,16 @@ import DisplayUser from "./ISP/DisplayUser";
 
 function App() {
   const user = {
-    name: "John",
-    age: 27,
-    hairColor: "blonde",
-    heightInCm: 175,
+    personalInfo: {
+      name: "John",
+      age: 27,
+    },
+    physicalFeatures: {
+      hairColor: "blonde",
+      heightInCm: 175,
+    },
   };
-  return <DisplayUser user={user} />;
+  return <DisplayUser name={user.personalInfo.name} />;
 }
 
 export default App;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const DisplayUser = ({ user: { name } }: { user: { name: string } }) => {
+const DisplayUser = ({ name }: { name: string }) => {
   return (
     <div>
       <h1>Hello, {name}!</h1>
